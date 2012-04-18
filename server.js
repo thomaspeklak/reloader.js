@@ -1,11 +1,18 @@
 var express = require('express'),
-    app = express.createServer(),
-    io = require('socket.io').listen(app),
-    fs = require('fs');
+app = express.createServer(),
+io = require('socket.io').listen(app),
+fs = require('fs');
 
 app.get('/', function(req, res){
   io.sockets.emit('reload');
   res.send('ok');
+});
+
+app.get('/delayed', function(req, res){
+  setTimeout(function(){
+    io.sockets.emit('reload');
+    res.send('ok');
+  }, 1000);
 });
 
 app.configure(function(){
