@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "express": "2.x.x",
-    "socket.io": "x.x.x"
+    "socket.io": "x.x.x",
+    "glob": "3.1.x"
   },
   "devDependencies": {}
 }
